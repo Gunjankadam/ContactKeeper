@@ -141,11 +141,9 @@ const API_BASE = 'https://contactkeeper-ulq2.onrender.com/api';
 
 ---
 
-##  Screenshots
+##  Screenshots of Demo
 
-- 🔐 OTP Verification
-- 📝 Registration & Validation
-- 📇 Contact Dashboard
-- ✏️ Edit/Delete contact
+![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic3.png)
+![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic3.png)
 
 
