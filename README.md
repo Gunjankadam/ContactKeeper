@@ -136,14 +136,15 @@ Upload all HTML/CSS/JS files to [Netlify](https://contactkeeper-77.netlify.app/)
 
 Edit this line in `main.js`:
 ```js
-const API_BASE = 'https://contactkeeper-ulq2.onrender.com/api';
+const API_BASE = 'https://contactkeeper-ulq2.onrender.com';
 ```
 
 ---
 
 ##  Screenshots of Demo
 
-![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic3.png)
-![Image 3](https://github.com/Gunjankadam/SocialAnalyser/blob/main/pic3.png)
+![Image 3](https://github.com/Gunjankadam/ContactKeeper/blob/main/22.png)
+![Image 3](https://github.com/Gunjankadam/ContactKeeper/blob/main/33.png)
+![Image 3](https://github.com/Gunjankadam/ContactKeeper/blob/main/11.png)
 
 
