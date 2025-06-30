@@ -128,16 +128,17 @@ Authorization: Bearer <token>
 
 ---
 
-### 2. Frontend Deployment
-
-Upload all HTML/CSS/JS files to [Netlify](https://contactkeeper-77.netlify.app/)
-
-### 3.  Connect Frontend to Backend
+### 2.  Connect Frontend to Backend
 
 Edit this line in `main.js`:
 ```js
-const API_BASE = 'https://contactkeeper-ulq2.onrender.com';
+const API_BASE = 'https://your-backend-url';
 ```
+
+### 3. Frontend Deployment and backend deployment
+
+Frontend [Netlify](https://contactkeeper-77.netlify.app/)
+Backend [Render](https://contactkeeper-ulq2.onrender.com)
 
 ---
 
