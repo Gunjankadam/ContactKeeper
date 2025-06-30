@@ -1,16 +1,21 @@
-# 📇 ContactKeeper API
 
-A secure and modular RESTful API for managing user contacts and authentication, built with **Node.js**, **Express**, and **MongoDB**.
+# ContactKeeper
 
----
-
-## 🚀 Project Overview
-
-**ContactKeeper API** enables users to register, log in, and perform full CRUD operations on their personal contacts. This API is structured for scalability and includes token-based authentication, input validation, and error handling middleware.
+A complete contact management system with a styled HTML/CSS/JS frontend (for demo purpose) and a secure Node.js/Express/MongoDB backend. Includes **4-digit email OTP verification**, **form validations**, **JWT authentication**, and full CRUD for contact data.
 
 ---
 
-## 📁 File Structure
+## Features
+
+- User registration with 4-digit OTP email verification
+- Login with JWT and secure storage in localStorage
+- Contact CRUD operations (Create, Read, Update, Delete)
+- Clean UI with OTP input boxes
+- Password strength validation (1 uppercase, 1 special char, 2 digits, min 6 chars)
+
+---
+
+## File Structure
 
 ```
 contact-backend-api-main/
@@ -36,23 +41,34 @@ contact-backend-api-main/
     └── extensions.json
 ```
 
----
-
-## 🌐 API Endpoints
-
-| Method | Endpoint               | Description                            | Auth Required |
-|--------|------------------------|----------------------------------------|---------------|
-| POST   | `/api/users/register`  | Register a new user                    | ❌            |
-| POST   | `/api/users/login`     | Log in and receive a JWT token         | ❌            |
-| GET    | `/api/contacts/`       | Get all contacts of logged-in user     | ✅            |
-| GET    | `/api/contacts/:id`    | Get a specific contact by ID           | ✅            |
-| POST   | `/api/contacts/`       | Create a new contact                   | ✅            |
-| PUT    | `/api/contacts/:id`    | Update an existing contact by ID       | ✅            |
-| DELETE | `/api/contacts/:id`    | Delete a contact by ID                 | ✅            |
+```
+contactkeeper-frontend/
+├── index.html            # Login Page
+├── register.html         # Registration with OTP verification
+├── dashboard.html        # Contact list
+├── add-contact.html      # Create contact
+├── edit-contact.html     # Edit contact
+├── main.js               # Full app logic (login, otp, CRUD)
+├── style.css             # Responsive & modern UI styles
+```
 
 ---
 
-## 🔐 Authentication
+## API Endpoints
+
+| Method | Endpoint                    | Description                            | Auth |
+|--------|-----------------------------|----------------------------------------|------|
+| POST   | `/api/users/register`       | Register new user                      | ❌   |
+| POST   | `/api/users/login`          | Login and get JWT                      | ❌   |
+| POST   | `/api/users/send-otp`       | Send OTP email to user                 | ❌   |
+| GET    | `/api/contacts`             | Get all contacts for logged-in user    | ✅   |
+| POST   | `/api/contacts`             | Add new contact                        | ✅   |
+| PUT    | `/api/contacts/:id`         | Update a contact                       | ✅   |
+| DELETE | `/api/contacts/:id`         | Delete a contact                       | ✅   |
+
+---
+
+## Authentication
 
 - JWT-based authentication is used.
 - Include token in headers as:  
@@ -60,7 +76,7 @@ contact-backend-api-main/
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 1. Clone the repository:
    ```bash
@@ -76,9 +92,11 @@ contact-backend-api-main/
 3. Set up environment variables:
    Create a `.env` file and add:
    ```env
-   MONGO_URI=<your-mongo-db-uri>
-   JWT_SECRET=<your-secret>
-   PORT=5000
+    PORT=5000
+    MONGO_URI=<your-mongodb-uri>
+    JWT_SECRET=your-secret-key
+    EMAIL_USER=your-email@gmail.com
+    EMAIL_PASS=your-app-password
    ```
 
 4. Start the server:
@@ -88,23 +106,46 @@ contact-backend-api-main/
 
 ---
 
-## 🛠️ Tech Stack
+## Frontend Highlights
 
-- Node.js
-- Express.js
-- MongoDB & Mongoose
-- JSON Web Tokens (JWT)
-- Postman (for API testing)
-
----
-
-## 📌 Notes
-
-- All routes are prefixed with `/api/`.
-- The project includes custom error handling and token validation middleware.
+- OTP sent via backend and stored temporarily in `tempOtp` (demo mode)
+- Frontend form validates:
+  - Email format
+  - Password security
+  - Username length
+- OTP input as 4 separate boxes
+- Clear alert messages and automatic redirects
 
 ---
 
-## 📧 Contact
+## Authentication
 
-For any support, reach out to the maintainer or open an issue.
+All protected routes require a JWT token stored in `localStorage` and sent in:
+
+```http
+Authorization: Bearer <token>
+```
+
+---
+
+### 2. Frontend Deployment
+
+Upload all HTML/CSS/JS files to [Netlify](https://contactkeeper-77.netlify.app/)
+
+### 3.  Connect Frontend to Backend
+
+Edit this line in `main.js`:
+```js
+const API_BASE = 'https://contactkeeper-ulq2.onrender.com/api';
+```
+
+---
+
+##  Screenshots
+
+- 🔐 OTP Verification
+- 📝 Registration & Validation
+- 📇 Contact Dashboard
+- ✏️ Edit/Delete contact
+
+
