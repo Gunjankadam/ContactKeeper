@@ -1,4 +1,4 @@
-const API_BASE = 'https://contactkeeper-ulq2.onrender.com/api'; // Replace with your Render backend URL
+const API_BASE = 'your backend url'; // Replace with your backend URL
 
 
 let tempOtp = "";
