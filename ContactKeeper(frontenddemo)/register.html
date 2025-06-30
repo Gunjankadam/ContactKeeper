@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ContactKeeper - Register</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .otp-input-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .otp-input {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card shadow">
+      <h2 class="title">Create an Account</h2>
+
+      <input type="text" id="username" placeholder="Username" />
+      <input type="email" id="email" placeholder="Email" />
+      <button onclick="sendOtp()">Send OTP</button>
+
+      <div class="otp-input-container">
+        <input type="text" id="otp1" maxlength="1" class="otp-input" oninput="moveToNext(this, 'otp2')" />
+        <input type="text" id="otp2" maxlength="1" class="otp-input" oninput="moveToNext(this, 'otp3')" />
+        <input type="text" id="otp3" maxlength="1" class="otp-input" oninput="moveToNext(this, 'otp4')" />
+        <input type="text" id="otp4" maxlength="1" class="otp-input" />
+      </div>
+
+      <button onclick="verifyOtp()">Verify OTP</button>
+
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="register()">Register</button>
+
+      <p class="small-text">Already have an account? <a href="index.html">Login</a></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    function moveToNext(current, nextId) {
+      if (current.value.length === 1) {
+        document.getElementById(nextId).focus();
+      }
+    }
+
+    function getOtpValue() {
+      return (
+        document.getElementById('otp1').value +
+        document.getElementById('otp2').value +
+        document.getElementById('otp3').value +
+        document.getElementById('otp4').value
+      );
+    }
+  </script>
+</body>
+</html>
