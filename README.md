@@ -137,8 +137,8 @@ const API_BASE = 'https://your-backend-url';
 
 ### 3. Frontend Deployment and backend deployment
 
-Frontend [Netlify](https://contactkeeper-77.netlify.app/)
-Backend [Render](https://contactkeeper-ulq2.onrender.com)
+Frontend [Netlify](https://helpful-pie-f90657.netlify.app/)
+Backend [Vercel](https://contact-backend-delta.vercel.app)
 
 ---
 
