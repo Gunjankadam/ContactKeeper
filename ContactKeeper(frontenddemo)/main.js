@@ -9,7 +9,7 @@ function sendOtp() {
   tempOtp = Math.floor(1000 + Math.random() * 9000).toString();
 
   // Call backend to send email with OTP
-  fetch(`${API_BASE}/users/send-otp`, {
+  fetch(`${API_BASE}/api/users/send-otp`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, otp: tempOtp })
@@ -53,7 +53,7 @@ function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  fetch(`${API_BASE}/users/login`, {
+  fetch(`${API_BASE}/api/users/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password })
@@ -97,7 +97,7 @@ function register() {
   if (validationError) return alert(validationError);
   if (!otpVerified) return alert("Please verify OTP before registering.");
 
-  fetch(`${API_BASE}/users/register`, {
+  fetch(`${API_BASE}/api/users/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, email, password })
@@ -120,7 +120,7 @@ function logout() {
 
 // CONTACT MANAGEMENT
 function loadContacts() {
-  fetch(`${API_BASE}/contacts`, {
+  fetch(`${API_BASE}/api/contacts`, {
     headers: { 'Authorization': 'Bearer ' + localStorage.getItem("token") }
   })
   .then(res => res.json())
@@ -146,7 +146,7 @@ function addContact() {
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
 
-  fetch(`${API_BASE}/contacts`, {
+  fetch(`${API_BASE}/api/contacts`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ function addContact() {
 
 function deleteContact(id) {
   if (confirm("Are you sure you want to delete this contact?")) {
-    fetch(`${API_BASE}/contacts/${id}`, {
+    fetch(`${API_BASE}/api/contacts/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': 'Bearer ' + localStorage.getItem("token") }
     })
@@ -181,7 +181,7 @@ function editContact(id) {
 
 function loadEditForm() {
   const id = localStorage.getItem("editId");
-  fetch(`${API_BASE}/contacts/${id}`, {
+  fetch(`${API_BASE}/api/contacts/${id}`, {
     headers: { 'Authorization': 'Bearer ' + localStorage.getItem("token") }
   })
   .then(res => res.json())
@@ -198,7 +198,7 @@ function updateContact() {
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
 
-  fetch(`${API_BASE}/contacts/${id}`, {
+  fetch(`${API_BASE}/api/contacts/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
