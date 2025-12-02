@@ -137,7 +137,7 @@ const API_BASE = 'https://your-backend-url';
 
 ### 3. Frontend Deployment and backend deployment
 
-Frontend [Netlify](https://helpful-pie-f90657.netlify.app/)
+Frontend [Netlify](https://backendcontact.netlify.app/)
 Backend [Vercel](https://contact-backend-delta.vercel.app)
 
 ---
